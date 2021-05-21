@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<ListView xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+          fx:controller="ui.ListViewClasses"
+          fx:id="listViewClasses"
+          style="-fx-background-color: -fx-background;"
+          cellFactory="${controller}"
+          items="${controller.classList}"
+          onMouseClicked="#onClassClicked">
+</ListView>

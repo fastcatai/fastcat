@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "shortcuts": {
+    "OpenLoadVideoDialog": ["Ctrl+O"],
+    "SaveDialog": ["Ctrl+S"],
+    "DeleteAnnotation": ["Delete"],
+    "SkipImageForwardSingle": ["Ctrl+Right"],
+    "SkipImageBackwardsSingle": ["Ctrl+Left"],
+    "SkipImageForwardDouble": ["Ctrl+Alt+Right"],
+    "SkipImageBackwardsDouble": ["Ctrl+Alt+Left"],
+    "SkipImageForwardTriple": ["Shift+Ctrl+Right"],
+    "SkipImageBackwardsTriple": ["Shift+Ctrl+Left"],
+    "SkipSuperframeOneForward": ["Ctrl+Alt+Down"],
+    "SkipSuperframeOneBackwards": ["Ctrl+Alt+Up"],
+    "AddStartTag": ["F11"],
+    "AddEndTag": ["F12"]
+  },
+  "classes": {
+    "P1": ["1", "Ctrl+1"],
+    "P2": ["2", "Ctrl+2"]
+  }
+}

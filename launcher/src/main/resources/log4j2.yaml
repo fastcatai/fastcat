@@ -1,0 +1,13 @@
+Appenders:
+    Console:
+      name: STDOUT
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%highlight{%date %-5level - %logger - %msg%n%throwable}{FATAL=bg_red,ERROR=red,WARN=yellow,INFO=cyan,DEBUG=green,TRACE=blue}"
+        disableAnsi: false
+
+Loggers:
+  Root:
+    level: all
+    AppenderRef:
+      ref: STDOUT

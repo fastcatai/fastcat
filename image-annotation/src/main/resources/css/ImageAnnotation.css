@@ -1,0 +1,147 @@
+/***************************************************
+* Override default tooltip delay
+***************************************************/
+
+.tooltip {
+    -fx-show-delay: 200ms;
+}
+
+/***************************************************
+* TabPane Annotations
+***************************************************/
+
+.tab-pane-annotations > .tab-header-area > .tab-header-background {
+    -fx-background-color: none;
+}
+
+.tab-pane-annotations:top > .tab-header-area {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/**************************************************
+* TabPane Categories
+**************************************************/
+
+.tab-pane-categories > .tab-header-area > .headers-region > .tab {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: -1 6;
+}
+
+.tab-pane-categories:top > .tab-header-area {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane-categories:left > .tab-header-area {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.tab-pane-categories > .tab-header-area > .tab-header-background {
+    -fx-background-color: none;
+}
+
+.tab-pane-categories > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: #90a4ae;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.tab-pane-categories:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-style: none;
+    -fx-border-width: 0;
+    -fx-border-color: none;
+}
+
+.tab-pane-categories > .tab-header-area > .headers-region > .tab:hover {
+    -fx-color: #bdbdbd;
+}
+
+/***************************************************
+* Additional Labels List View
+***************************************************/
+
+.additional-label-delete {
+    -fx-shape: "M0,1.8L1.8,0L9.1,7.3L7.3,9.1ZM7.3,0L9.1,1.8L1.8,9.1L0,7.3L7.3,0Z";
+    -fx-background-color: #949494;
+    -fx-padding: 5;
+    -fx-cursor: hand;
+}
+
+.additional-label-delete:hover {
+    -fx-background-color: #ff1111;
+}
+
+/***************************************************
+* Navigation Bar + Left/Right Navigation Buttons
+***************************************************/
+
+.navigation-left, .navigation-right {
+    -fx-cursor: hand;
+}
+
+.navigation-left > .ikonli-font-icon {
+    -fx-icon-code: "mdi2c-chevron-left-circle-outline";
+    -fx-icon-size: 30;
+    -fx-icon-color: #546E7A;
+}
+
+.navigation-left:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2c-chevron-left-circle";
+}
+
+.navigation-left:pressed > .ikonli-font-icon {
+    -fx-icon-color: #78909C;
+}
+
+.navigation-right > .ikonli-font-icon {
+    -fx-icon-code: "mdi2c-chevron-right-circle-outline";
+    -fx-icon-size: 30;
+    -fx-icon-color: #546E7A;
+}
+
+.navigation-right:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2c-chevron-right-circle";
+}
+
+.navigation-right:pressed > .ikonli-font-icon {
+    -fx-icon-color: #78909C;
+}
+
+/***************************************************
+* Status Bar
+***************************************************/
+
+.status-bar {
+    -fx-border-color: #d1d1d1 -fx-background -fx-background -fx-background;
+}
+
+.status-bar .label {
+    -fx-text-fill: gray;
+}
+
+.status-bar > .label {
+    -fx-font-weight: bold;
+}
+
+/***************************************************
+* Loading Folder Dialog
+***************************************************/
+
+.load-folder-dialog-title {
+    -fx-font-family: 'Britannic Bold';
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.info-button {
+    -fx-text-fill: -fx-text-background-color;
+    -fx-alignment: baseline-left;
+    -fx-focus-traversable: false;
+}
+
+.info-button:hover {
+    -fx-underline: true;
+}

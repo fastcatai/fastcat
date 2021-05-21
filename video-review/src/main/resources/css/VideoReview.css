@@ -1,0 +1,230 @@
+/***************************************************
+* Video Player: Switch to Frame Viewer Button
+***************************************************/
+
+.frame-mode-button {
+    -fx-cursor: hand;
+}
+
+.frame-mode-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2i-image-multiple-outline";
+    -fx-icon-size: 25;
+}
+
+.frame-mode-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2i-image-multiple";
+}
+
+.frame-mode-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+/***************************************************
+* Video Player: Controls
+***************************************************/
+
+.play-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-play-circle-outline";
+    -fx-icon-size: 35;
+}
+
+.play-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-play-circle";
+}
+
+.play-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+.pause-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-pause-circle-outline";
+    -fx-icon-size: 35;
+}
+
+.pause-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-pause-circle";
+}
+
+.pause-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+.rewind-button {
+    -fx-min-width: 25;
+    -fx-max-width: 25;
+}
+
+.rewind-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2r-rewind-outline";
+    -fx-icon-size: 25;
+}
+
+.rewind-button:hover {
+    /* bug fix: so that icon does not move to the left on hover */
+    -fx-padding: 0 0 0 1;
+}
+
+.rewind-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2r-rewind";
+}
+
+.rewind-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+.fast-forward-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2f-fast-forward-outline";
+    -fx-icon-size: 25;
+}
+
+.fast-forward-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2f-fast-forward";
+}
+
+.fast-forward-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+/***************************************************
+* Video Player: Slider
+***************************************************/
+
+.slider > .thumb {
+    -fx-padding: 0.8em;
+    -fx-background-radius: 1.0em;
+}
+
+.slider > .track {
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        derive(-fx-color,-50%),
+        linear-gradient(to bottom, derive(-fx-color,-15.5%), derive(-fx-color,34%) 30%, derive(-fx-color,68%));
+    -fx-padding: 0.5em; /* 2.5 */
+}
+
+/***************************************************
+* Frame Viewer: Navigation Buttons
+***************************************************/
+
+.image-viewer-button:hover > .ikonli-font-icon {
+    -fx-icon-color: #0277bd;
+}
+
+.image-viewer-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+/***************************************************
+* Frame Viewer: Switch to Frame Viewer Button
+***************************************************/
+
+.video-mode-button {
+    -fx-cursor: hand;
+}
+
+.video-mode-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2v-video-outline";
+    -fx-icon-size: 30;
+}
+
+.video-mode-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2v-video";
+}
+
+.video-mode-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+
+/***************************************************
+* Frame Viewer: List Buttons for Superframes,
+*               Annotated Images and Classes
+***************************************************/
+
+.list-button {
+    -fx-cursor: hand;
+    -selected-color: #0277bd;
+}
+.list-button > .ikonli-font-icon {
+    -fx-icon-size: 23;
+    -fx-icon-color: #000000;
+}
+.list-button:hover > .ikonli-font-icon {
+    -fx-icon-color: -selected-color;
+}
+.list-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474f;
+}
+.list-button:selected > .ikonli-font-icon {
+    -fx-icon-color: -selected-color;
+}
+
+.superframes-list-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2e-eye-check-outline";
+}
+.superframes-list-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2e-eye-check";
+}
+
+.annotated-images-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2i-image-edit-outline";
+}
+.annotated-images-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2i-image-edit";
+}
+
+.classes-list-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2l-label-multiple-outline";
+}
+.classes-list-button:hover {
+    /* bug fix: so that icon does not move to the bottom on hover */
+    -fx-padding: 0 0 2 0;
+}
+.classes-list-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2l-label-multiple";
+}
+
+/***************************************************
+* Frame Viewer: Tags
+***************************************************/
+
+/* Class Tags for Frames */
+
+.frame-class-tag > .label {
+    -fx-background-color: #64b5f6;
+    -fx-background-radius: 4;
+    -fx-border-color: #64b5f6;
+    -fx-border-radius: 4;
+    -fx-padding: 0 5;
+    -fx-cursor: hand;
+}
+.frame-class-tag > .label:hover {
+    -fx-border-color: #ff0000;
+}
+.frame-class-tag > .label:hover > .text {
+    -fx-strikethrough: true;
+}
+
+/* Class Tags for Annotations */
+
+.annotation-class-tag > .label {
+    -fx-background-color: #66bb6a;
+    -fx-background-radius: 4;
+    -fx-border-color: #66bb6a;
+    -fx-border-radius: 4;
+    -fx-padding: 0 5;
+    -fx-cursor: hand;
+}
+.annotation-class-tag > .label:hover {
+    -fx-border-color: #ff0000;
+}
+.annotation-class-tag > .label:hover > .text {
+    -fx-strikethrough: true;
+}
+
+/***************************************************
+* Frame Viewer: Default label error stlye
+***************************************************/
+
+.text-field-validation-error {
+    -fx-effect: dropshadow(three-pass-box, darkred, 10, 0, 0, 0);
+}

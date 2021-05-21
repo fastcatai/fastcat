@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<TableView fx:id="timeTable" xmlns:fx="http://javafx.com/fxml/1" editable="true" xmlns="http://javafx.com/javafx/11.0.1"
+           fx:controller="controller.TimeTableController">
+  <columns>
+    <TableColumn fx:id="columnTime" text="Time"/>
+    <TableColumn fx:id="columnLabel" text="Label"/>
+    <TableColumn fx:id="columnInstance" text="Instance"/>
+  </columns>
+  <columnResizePolicy>
+    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+  </columnResizePolicy>
+</TableView>

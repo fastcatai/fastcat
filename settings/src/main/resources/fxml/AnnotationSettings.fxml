@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import annotation.FlatColorPicker?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import ui.BorderedTitledPane?>
+<?import java.lang.String?>
+<ScrollPane stylesheets="@/css/Settings.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="annotation.AnnotationSettingsControllerV2">
+  <VBox fx:id="root" spacing="15.0">
+    <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <Label text="The style classes are applied with the following order of priority:&#10;Selected &gt; Verified &gt; Auto Create &gt; Default"
+           textFill="#646464">
+      <graphic>
+        <FontIcon iconColor="#1E88E5" iconLiteral="mdi2i-information-outline" iconSize="24"/>
+      </graphic>
+    </Label>
+    <BorderedTitledPane title="Annotation">
+      <GridPane hgap="5.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="75.0"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+        </rowConstraints>
+        <Label text="Fill" GridPane.rowIndex="1"/>
+        <Label text="Fill Hover" GridPane.rowIndex="2"/>
+        <Label text="Stroke" GridPane.rowIndex="3"/>
+        <Label text="Stroke Hover" GridPane.rowIndex="4"/>
+        <Label text="Stroke Width" GridPane.rowIndex="5"/>
+        <Label text="Width Hover" GridPane.rowIndex="6"/>
+        <Label text="Selected" GridPane.columnIndex="1">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.hover.selected"
+                         GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.selected"
+                         GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.hover.selected"
+                         GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Spinner id="annotation.stroke.width.selected" fx:id="annotationStrokeWidthSelected" amountToStepBy="1"
+                 initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Spinner id="annotation.stroke.width.hover.selected" fx:id="annotationStrokeWidthHoverSelected"
+                 amountToStepBy="1" initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="1"
+                 GridPane.rowIndex="6"/>
+        <Label text="Verified" GridPane.columnIndex="2">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.hover.verified"
+                         GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.verified"
+                         GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.hover.verified"
+                         GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <Spinner id="annotation.stroke.width.verified" fx:id="annotationStrokeWidthVerified" amountToStepBy="1"
+                 initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+        <Spinner id="annotation.stroke.width.hover.verified" fx:id="annotationStrokeWidthHoverVerified"
+                 amountToStepBy="1" initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="2"
+                 GridPane.rowIndex="6"/>
+        <Label text="Auto Created" GridPane.columnIndex="3">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.auto" GridPane.columnIndex="3"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.hover.auto"
+                         GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.auto" GridPane.columnIndex="3"
+                         GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.hover.auto"
+                         GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+        <Spinner id="annotation.stroke.width.auto" fx:id="annotationStrokeWidthAuto" amountToStepBy="1" initialValue="1"
+                 max="25" min="1" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+        <Spinner id="annotation.stroke.width.hover.auto" fx:id="annotationStrokeWidthHoverAuto" amountToStepBy="1"
+                 initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+        <Label text="Default" GridPane.columnIndex="4">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.fill.color.hover.default"
+                         GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.default"
+                         GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.stroke.color.hover.default"
+                         GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+        <Spinner id="annotation.stroke.width.default" fx:id="annotationStrokeWidthDefault" amountToStepBy="1"
+                 initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+        <Spinner id="annotation.stroke.width.hover.default" fx:id="annotationStrokeWidthHoverDefault" amountToStepBy="1"
+                 initialValue="1" max="25" min="1" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="6"/>
+      </GridPane>
+    </BorderedTitledPane>
+    <BorderedTitledPane title="Label">
+      <GridPane hgap="5.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="75.0"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+        </rowConstraints>
+        <CheckBox id="annotation.label.visible" fx:id="annotationLabelVisible" mnemonicParsing="false" selected="true" text="Visible"/>
+        <Label text="Fill" GridPane.rowIndex="1"/>
+        <Label text="Fill Hover" GridPane.rowIndex="2"/>
+        <Label text="Font Color" GridPane.rowIndex="3"/>
+        <Label text="Color Hover" GridPane.rowIndex="4"/>
+        <Label text="Border" GridPane.rowIndex="5"/>
+        <Label text="Border Style" GridPane.rowIndex="6"/>
+        <Label text="Selected" GridPane.columnIndex="1">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.hover.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.hover.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="4"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.border.color.selected" GridPane.columnIndex="1"
+                         GridPane.rowIndex="5"/>
+        <ChoiceBox id="annotation.label.border.style.selected" fx:id="annotationBorderStyleSelected" prefWidth="75.0"
+                   value="solid" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="solid"/>
+              <String fx:value="dashed"/>
+              <String fx:value="dotted"/>
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Label text="Verified" GridPane.columnIndex="2">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.hover.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.hover.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="4"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.border.color.verified" GridPane.columnIndex="2"
+                         GridPane.rowIndex="5"/>
+        <ChoiceBox id="annotation.label.border.style.verified" fx:id="annotationBorderStyleVerified" prefWidth="75.0"
+                   value="solid" GridPane.columnIndex="2" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="solid"/>
+              <String fx:value="dashed"/>
+              <String fx:value="dotted"/>
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Label text="Auto Created" GridPane.columnIndex="3">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.auto" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.hover.auto" GridPane.columnIndex="3"
+                         GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.auto" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.hover.auto" GridPane.columnIndex="3"
+                         GridPane.rowIndex="4"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.border.color.auto" GridPane.columnIndex="3"
+                         GridPane.rowIndex="5"/>
+        <ChoiceBox id="annotation.label.border.style.auto" fx:id="annotationBorderStyleAuto" prefWidth="75.0"
+                   value="solid" GridPane.columnIndex="3" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="solid"/>
+              <String fx:value="dashed"/>
+              <String fx:value="dotted"/>
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Label text="Default" GridPane.columnIndex="4">
+          <font>
+            <Font name="System Bold Italic" size="14.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.fill.color.hover.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="2"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="3"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.font.color.hover.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="4"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.label.border.color.default" GridPane.columnIndex="4"
+                         GridPane.rowIndex="5"/>
+        <ChoiceBox id="annotation.label.border.style.default" fx:id="annotationBorderStyleDefault" prefWidth="75.0"
+                   value="solid" GridPane.columnIndex="4" GridPane.rowIndex="6">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="solid"/>
+              <String fx:value="dashed"/>
+              <String fx:value="dotted"/>
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+      </GridPane>
+    </BorderedTitledPane>
+    <BorderedTitledPane title="Anchor">
+      <GridPane hgap="5.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="75.0"/>
+          <ColumnConstraints halignment="CENTER"/>
+          <ColumnConstraints halignment="CENTER"/>
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+        </rowConstraints>
+        <Label text="Fill" GridPane.rowIndex="1"/>
+        <Label text="Stroke" GridPane.rowIndex="2"/>
+        <Label text="Size" GridPane.rowIndex="3"/>
+        <Label text="Default" GridPane.columnIndex="1">
+          <font>
+            <Font name="System Bold" size="12.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.anchor.fill.color.default" GridPane.columnIndex="1"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.anchor.stroke.color.default" GridPane.columnIndex="1"
+                         GridPane.rowIndex="2"/>
+        <Spinner id="annotation.anchor.size.default" fx:id="annotationAnchorSize" amountToStepBy="1" initialValue="1"
+                 max="25" min="1" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Hover" GridPane.columnIndex="2">
+          <font>
+            <Font name="System Bold" size="12.0"/>
+          </font>
+        </Label>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.anchor.fill.color.hover" GridPane.columnIndex="2"
+                         GridPane.rowIndex="1"/>
+        <FlatColorPicker onAction="#onColorPicked" propertyKey="annotation.anchor.stroke.color.hover" GridPane.columnIndex="2"
+                         GridPane.rowIndex="2"/>
+        <Spinner id="annotation.anchor.size.hover" fx:id="annotationAnchorSizeHover" amountToStepBy="1" initialValue="1"
+                 max="25" min="1" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+      </GridPane>
+    </BorderedTitledPane>
+  </VBox>
+</ScrollPane>

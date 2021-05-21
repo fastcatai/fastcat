@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Scene fx:id="scene" stylesheets="/css/KeymapSettings.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="keymap.dialogs.ICCreatorDialog">
+  <VBox fx:id="vBoxRoot" prefWidth="350.0" spacing="5.0">
+    <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+      <Label text="Class">
+        <font>
+          <Font name="System Bold" size="14.0" />
+        </font>
+      </Label>
+      <TextField fx:id="textFieldClass" promptText="Enter a class ..." HBox.hgrow="ALWAYS">
+        <font>
+          <Font size="14.0" />
+        </font>
+      </TextField>
+    </HBox>
+    <HBox>
+      <TextField fx:id="textFieldKeyComboString" editable="false" promptText="Press a key ..." HBox.hgrow="ALWAYS">
+        <font>
+          <Font name="System Bold" size="14.0" />
+        </font>
+      </TextField>
+    </HBox>
+   <ButtonBar>
+     <buttons>
+       <Button fx:id="buttonOk" defaultButton="true" mnemonicParsing="false" text="OK" />
+       <Button fx:id="buttonCancel" cancelButton="true" mnemonicParsing="false" text="Cancel" />
+     </buttons>
+   </ButtonBar>
+  </VBox>
+</Scene>

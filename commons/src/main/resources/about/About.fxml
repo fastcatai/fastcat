@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <HBox alignment="CENTER_LEFT" spacing="30.0">
+      <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../logo_polygon.png" />
+      </ImageView>
+      <VBox alignment="CENTER_LEFT" spacing="10.0">
+         <Label text="%app.name">
+            <font>
+               <Font name="System Bold" size="24.0" />
+            </font>
+         </Label>
+         <Label text="%app.description">
+            <font>
+               <Font name="System Italic" size="18.0" />
+            </font>
+         </Label>
+         <HBox spacing="5.0">
+            <Label text="Version:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="%app.version">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </HBox>
+      </VBox>
+   </HBox>
+   <VBox spacing="15.0">
+      <VBox>
+         <Label text="Authors">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label text="Kevin Makowski">
+            <font>
+               <Font size="14.0" />
+            </font>
+            <padding>
+               <Insets left="15.0" />
+            </padding>
+         </Label>
+         <Label text="Adrian Krenzer">
+            <font>
+               <Font size="14.0" />
+            </font>
+            <padding>
+               <Insets left="15.0" />
+            </padding>
+         </Label>
+      </VBox>
+      <VBox>
+         <HBox alignment="CENTER_LEFT" spacing="5.0">
+            <Label text="Icons">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <padding>
+                  <Insets bottom="2.0"/>
+               </padding>
+            </Label>
+            <HBox alignment="CENTER_RIGHT">
+               <Hyperlink fx:id="hyperlinkIkonli" text="Ikonli"/>
+               <Label text="with"/>
+               <Hyperlink fx:id="hyperlinkMaterialIcons" text="Material Design Icons"/>
+            </HBox>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" spacing="5.0">
+            <Label text="PDF Viewer">
+               <font>
+                  <Font name="System Bold" size="14.0"/>
+               </font>
+               <padding>
+                  <Insets bottom="2.0"/>
+               </padding>
+            </Label>
+            <Hyperlink fx:id="hyperlinkPDFViewer" text="PDFViewerFX"/>
+         </HBox>
+      </VBox>
+   </VBox>
+</VBox>

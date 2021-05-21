@@ -1,0 +1,28 @@
+/**************************************************
+*
+* Clearable TextField styles
+*
+**************************************************/
+
+.clearable-field .clear-button {
+    -fx-padding: 0 3 0 3;
+}
+
+.clearable-field .clear-button > .graphic {
+    -fx-background-color: #949494;
+    -fx-scale-shape: false;
+    -fx-padding: 4.5 4.5 4.5 4.5;
+    -fx-shape: "M0,1.8L1.8,0L9.1,7.3L7.3,9.1ZM7.3,0L9.1,1.8L1.8,9.1L0,7.3L7.3,0Z";
+}
+
+.clearable-field .clear-button:hover {
+    -fx-cursor: default;
+}
+
+.clearable-field .clear-button:hover > .graphic {
+    -fx-background-color: #ee4444;
+}
+
+.clearable-field .clear-button:pressed > .graphic {
+    -fx-background-color: #ff1111;
+}

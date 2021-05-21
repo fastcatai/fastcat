@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<?import controller.ListViewAnnotations?>
+<Scene xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../css/ImageAnnotation.css"
+       xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller.ImageAnnotationController">
+  <VBox prefHeight="700.0" prefWidth="1100.0">
+    <fx:include fx:id="menuBar" source="IAMenuBar.fxml"/>
+    <VBox VBox.vgrow="ALWAYS">
+      <HBox VBox.vgrow="ALWAYS">
+        <TabPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" side="LEFT"
+                 styleClass="tab-pane-categories" tabClosingPolicy="UNAVAILABLE">
+          <Tab closable="false" text="Annotation">
+            <VBox spacing="5.0">
+              <padding>
+                <Insets left="5.0" top="10.0"/>
+              </padding>
+              <VBox spacing="3.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Label text="Jump">
+                    <font>
+                      <Font name="System Bold" size="13.0"/>
+                    </font>
+                  </Label>
+                  <TextField fx:id="textFieldJumpImage" promptText="enter filename"
+                             HBox.hgrow="ALWAYS"/>
+                  <Label>
+                    <graphic>
+                      <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                    </graphic>
+                    <tooltip>
+                      <Tooltip text="Jumps to the image whose filename was entered without extension"/>
+                    </tooltip>
+                  </Label>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="3.0">
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="3.0" HBox.hgrow="ALWAYS">
+                      <CheckBox fx:id="checkBoxAutoNext" mnemonicParsing="false"
+                                text="auto next"/>
+                      <Label>
+                        <graphic>
+                          <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                        </graphic>
+                        <tooltip>
+                          <Tooltip
+                                  text="Jumps automatically to the next frame when annotation is created or deleted"/>
+                        </tooltip>
+                      </Label>
+                    </HBox>
+                    <Separator orientation="VERTICAL">
+                      <padding>
+                        <Insets left="3.0"/>
+                      </padding>
+                    </Separator>
+                    <HBox spacing="7.0">
+                      <Spinner fx:id="spinnerAutoNextSeconds" prefWidth="75.0"/>
+                      <ToggleButton fx:id="toggleAutoNext" mnemonicParsing="false"
+                                    prefWidth="80.0" text="Auto Next"/>
+                    </HBox>
+                  </HBox>
+                </HBox>
+                <ListView fx:id="listViewImages" minHeight="100.0" VBox.vgrow="ALWAYS"/>
+                <HBox>
+                  <VBox.margin>
+                    <Insets top="-3.0"/>
+                  </VBox.margin>
+                  <HBox HBox.hgrow="ALWAYS">
+                    <Label text="Resolution:">
+                      <HBox.margin>
+                        <Insets right="5.0"/>
+                      </HBox.margin>
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                    <Label fx:id="labelImageWidth" text="{width}">
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                    <Label text="x">
+                      <HBox.margin>
+                        <Insets left="2.0" right="2.0"/>
+                      </HBox.margin>
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                    <Label fx:id="labelImageHeight" text="{height}">
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                  </HBox>
+                  <HBox spacing="5.0">
+                    <Label text="Count:">
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                    <Label fx:id="labelFileCount" text="{total}">
+                      <font>
+                        <Font size="10.0"/>
+                      </font>
+                    </Label>
+                  </HBox>
+                </HBox>
+              </VBox>
+              <VBox spacing="5.0">
+                <StackPane>
+                  <Separator prefWidth="200.0"/>
+                  <Label style="-fx-background-color: -fx-background;" text="Annotation">
+                    <font>
+                      <Font name="System Bold" size="15.0"/>
+                    </font>
+                    <StackPane.margin>
+                      <Insets top="-1.0"/>
+                    </StackPane.margin>
+                    <padding>
+                      <Insets left="5.0" right="5.0"/>
+                    </padding>
+                  </Label>
+                </StackPane>
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                  <Button fx:id="buttonDeleteAnnotations" maxWidth="1.7976931348623157E308"
+                          mnemonicParsing="false" text="Delete" HBox.hgrow="ALWAYS"/>
+                  <Label>
+                    <graphic>
+                      <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                    </graphic>
+                    <tooltip>
+                      <Tooltip
+                              text="Deletes all annotation wihtin the image.&#10;To selecte multiple images use Ctrl+Click to select individual images&#10;or use Shift+Click to select a range."/>
+                    </tooltip>
+                  </Label>
+                </HBox>
+                <TabPane minHeight="200.0" prefHeight="250.0" styleClass="tab-pane-annotations"
+                         tabClosingPolicy="UNAVAILABLE">
+                  <Tab closable="false" text="Annotation">
+                    <VBox spacing="3.0">
+                      <padding>
+                        <Insets top="3.0"/>
+                      </padding>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="82.0"
+                               text="Annotation">
+                          <font>
+                            <Font name="System Bold" size="13.0"/>
+                          </font>
+                        </Label>
+                        <ChoiceBox fx:id="choiceBoxAnnotations"
+                                   maxWidth="1.7976931348623157E308" prefWidth="150.0"
+                                   HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="82.0"
+                               text="Default Label">
+                          <font>
+                            <Font size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldDefaultAnnotationLabel"
+                                   promptText="e.g. polyp" HBox.hgrow="ALWAYS"/>
+                      </HBox>
+<!--                      <ListView fx:id="listViewAnnotations" VBox.vgrow="ALWAYS"/>-->
+                      <ListViewAnnotations fx:id="listViewAnnotations" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                  </Tab>
+                  <Tab closable="false" text="Annotation+">
+                    <VBox spacing="3.0">
+                      <padding>
+                        <Insets top="3.0"/>
+                      </padding>
+                      <HBox>
+                        <HBox HBox.hgrow="ALWAYS">
+                          <CheckBox fx:id="checkBoxAutoCreated" mnemonicParsing="false"
+                                    text="AutoCreated"/>
+                        </HBox>
+                        <HBox HBox.hgrow="ALWAYS">
+                          <CheckBox fx:id="checkBoxVerified" mnemonicParsing="false"
+                                    text="Verified"/>
+                        </HBox>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label prefWidth="63.0" text="Instance">
+                          <font>
+                            <Font size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldInstance" promptText="annotation instance"
+                                   HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label text="Add Label">
+                          <font>
+                            <Font size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldSecondaryAnnotationLabel"
+                                   promptText="add secondary labels" HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                      <ListView fx:id="listViewSecondaryAnnotationLabels" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                  </Tab>
+                  <Tab closable="false" text="Image">
+                    <VBox spacing="3.0">
+                      <padding>
+                        <Insets top="3.0"/>
+                      </padding>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0"
+                               text="Image Label">
+                          <font>
+                            <Font name="System Bold" size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldImageLabel" promptText="primary label"
+                                   HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0"
+                               text="Add Label">
+                          <font>
+                            <Font size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldSecondaryImageLabel"
+                                   promptText="add secondary label" HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                      <ListView fx:id="listViewSecondaryImageLabels" VBox.vgrow="ALWAYS"/>
+                      <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <Label text="Default Label">
+                          <font>
+                            <Font size="14.0"/>
+                          </font>
+                        </Label>
+                        <TextField fx:id="textFieldDefaultImageLabel" promptText="default label"
+                                   HBox.hgrow="ALWAYS"/>
+                      </HBox>
+                    </VBox>
+                  </Tab>
+                </TabPane>
+              </VBox>
+            </VBox>
+          </Tab>
+          <Tab closable="false" text="Automation">
+            <VBox spacing="20.0">
+              <padding>
+                <Insets left="5.0" top="15.0"/>
+              </padding>
+              <VBox spacing="5.0" style="-fx-border-color: gray;">
+                <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0"/>
+                </padding>
+                <HBox alignment="CENTER">
+                  <VBox.margin>
+                    <Insets top="-9.0"/>
+                  </VBox.margin>
+                  <Label style="-fx-background-color: -fx-background;" text="Detection">
+                    <padding>
+                      <Insets left="5.0" right="5.0"/>
+                    </padding>
+                    <graphic>
+                      <Circle fx:id="circleStatusDetection" fill="RED" radius="5.0" stroke="BLACK"
+                              strokeType="INSIDE"/>
+                    </graphic>
+                  </Label>
+                </HBox>
+                <HBox alignment="CENTER" spacing="5.0">
+                  <Button fx:id="buttonSingleDetect" maxWidth="1.7976931348623157E308"
+                          mnemonicParsing="false" text="Single Detect" HBox.hgrow="ALWAYS"/>
+                  <Separator orientation="VERTICAL">
+                    <padding>
+                      <Insets right="-3.0"/>
+                    </padding>
+                  </Separator>
+                  <HBox>
+                    <ToggleButton fx:id="toggleStartStopDocker" mnemonicParsing="false"
+                                  prefWidth="90.0" text="Start Docker"/>
+                  </HBox>
+                </HBox>
+                <HBox alignment="CENTER" spacing="5.0">
+                  <ToggleButton fx:id="toggleBackgroundDetection" mnemonicParsing="false"
+                                prefWidth="95.0" text="Pre-Detection"/>
+                  <ProgressBar fx:id="progressBackgroundDetection" maxWidth="1.7976931348623157E308"
+                               progress="0.0" HBox.hgrow="ALWAYS"/>
+                </HBox>
+              </VBox>
+              <VBox spacing="5.0" style="-fx-border-color: gray;">
+                <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0"/>
+                </padding>
+                <HBox alignment="CENTER">
+                  <VBox.margin>
+                    <Insets top="-9.0"/>
+                  </VBox.margin>
+                  <Label style="-fx-background-color: -fx-background;" text="Tracking">
+                    <HBox.margin>
+                      <Insets/>
+                    </HBox.margin>
+                    <padding>
+                      <Insets left="5.0" right="5.0"/>
+                    </padding>
+                    <graphic>
+                      <Circle fx:id="circleStatusTracker" fill="RED" radius="5.0" stroke="BLACK"
+                              strokeType="INSIDE"/>
+                    </graphic>
+                  </Label>
+                </HBox>
+                <HBox alignment="CENTER" spacing="10.0">
+                  <ChoiceBox fx:id="choiceBoxTracker" maxWidth="1.7976931348623157E308"
+                             HBox.hgrow="ALWAYS"/>
+                  <ToggleButton fx:id="toggleTrack" mnemonicParsing="false" prefWidth="90.0"
+                                text="Track" HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <CheckBox fx:id="checkBoxOneTimeTrack" contentDisplay="RIGHT" mnemonicParsing="false"
+                          text="One-time Track">
+                  <graphic>
+                    <Label>
+                      <graphic>
+                        <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                      </graphic>
+                      <tooltip>
+                        <Tooltip prefHeight="60.0" prefWidth="200.0"
+                                 text="The tracker is initialized on each track event. The new bounding box is used to re-initialize the tracker."
+                                 textAlignment="JUSTIFY" wrapText="true"/>
+                      </tooltip>
+                    </Label>
+                  </graphic>
+                </CheckBox>
+                <CheckBox fx:id="checkBoxSizeChangedInit" contentDisplay="RIGHT" mnemonicParsing="false"
+                          text="Size Changed Init">
+                  <graphic>
+                    <Label>
+                      <graphic>
+                        <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                      </graphic>
+                      <tooltip>
+                        <Tooltip prefHeight="45.0" prefWidth="200.0"
+                                 text="The tracker is re-initialized when the size of the bounding box was changed."
+                                 textAlignment="JUSTIFY" wrapText="true"/>
+                      </tooltip>
+                    </Label>
+                  </graphic>
+                </CheckBox>
+              </VBox>
+              <VBox spacing="5.0" style="-fx-border-color: gray;">
+                <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0"/>
+                </padding>
+                <HBox alignment="CENTER">
+                  <VBox.margin>
+                    <Insets top="-9.0"/>
+                  </VBox.margin>
+                  <Label style="-fx-background-color: -fx-background;" text="Copy">
+                    <padding>
+                      <Insets left="5.0" right="5.0"/>
+                    </padding>
+                  </Label>
+                </HBox>
+                <HBox alignment="CENTER" spacing="5.0">
+                  <Spinner fx:id="spinnerCopyNumber" maxWidth="100.0" HBox.hgrow="ALWAYS"/>
+                  <Button fx:id="buttonCopyNextNImages" maxWidth="1.7976931348623157E308"
+                          mnemonicParsing="false" text="Next {n} Images" HBox.hgrow="ALWAYS"/>
+                  <Label>
+                    <graphic>
+                      <FontIcon iconLiteral="mdi2i-information-outline" iconSize="18" iconColor="#1E88E5"/>
+                    </graphic>
+                    <tooltip>
+                      <Tooltip text="Copies the selected annotation into the following n images"/>
+                    </tooltip>
+                  </Label>
+                </HBox>
+              </VBox>
+            </VBox>
+          </Tab>
+          <HBox.margin>
+            <Insets bottom="5.0"/>
+          </HBox.margin>
+        </TabPane>
+        <VBox HBox.hgrow="ALWAYS">
+          <StackPane fx:id="stackPaneImageHolder" VBox.vgrow="ALWAYS">
+            <padding>
+              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </padding>
+          </StackPane>
+          <VBox>
+            <Separator prefWidth="200.0"/>
+            <HBox alignment="CENTER">
+              <HBox spacing="10.0">
+                <HBox fx:id="buttonPrevImage" alignment="CENTER" styleClass="navigation-left"
+                      HBox.hgrow="ALWAYS">
+                  <FontIcon/>
+                </HBox>
+                <HBox fx:id="buttonNextImage" alignment="CENTER" styleClass="navigation-right"
+                      HBox.hgrow="ALWAYS">
+                  <FontIcon/>
+                </HBox>
+              </HBox>
+              <padding>
+                <Insets bottom="3.0" top="3.0"/>
+              </padding>
+            </HBox>
+            <padding>
+              <Insets left="5.0" right="5.0"/>
+            </padding>
+          </VBox>
+        </VBox>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="22.0" spacing="5.0"
+            styleClass="status-bar">
+        <padding>
+          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <Label text="Image Folder:">
+          <font>
+            <Font size="10.0"/>
+          </font>
+        </Label>
+        <HBox>
+          <Label fx:id="labelLoadedImageFolderPath" textOverrun="CENTER_ELLIPSIS">
+            <font>
+              <Font size="10.0"/>
+            </font>
+          </Label>
+          <Label fx:id="labelFilename" maxWidth="300.0" textOverrun="CENTER_ELLIPSIS">
+            <font>
+              <Font size="10.0"/>
+            </font>
+          </Label>
+        </HBox>
+      </HBox>
+    </VBox>
+  </VBox>
+</Scene>

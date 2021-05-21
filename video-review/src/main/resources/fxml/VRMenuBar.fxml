@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<MenuBar xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1"
+         fx:controller="controller.VRMenuBarController">
+  <Menu mnemonicParsing="false" text="%vr.menu.file">
+    <MenuItem fx:id="menuItemLoadVideo" mnemonicParsing="false" onAction="#loadVideo" text="%vr.menu.loadVideo">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2f-file-video-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSave" mnemonicParsing="false" onAction="#save" text="%vr.menu.save">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-content-save-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" onAction="#openSettings" text="%vr.menu.settings">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2t-tune" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" onAction="#backToMenu" text="%vr.menu.backToMenu"/>
+    <MenuItem mnemonicParsing="false" onAction="#exitProgram" text="%vr.menu.exit"/>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%vr.menu.edit">
+    <MenuItem fx:id="menuItemAddStartTag" mnemonicParsing="false" onAction="#addStartTag" text="%vr.menu.addStartTag">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-contain-start" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemAddEndTag" mnemonicParsing="false" onAction="#addEndTag" text="%vr.menu.addEndTag">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-contain-end" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem fx:id="menuItemDeleteAnnotation" mnemonicParsing="false" onAction="#deleteAnnotation"
+              text="%vr.menu.deleteAnnotation">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2d-delete-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%vr.menu.navigation">
+    <MenuItem fx:id="menuItemSkipImageForwardSingle" mnemonicParsing="false" onAction="#onSkipImageForwardSingle"
+              onMenuValidation="#onSkipImageForwardSingleMenuValidation" text="%vr.menu.skipImageForwardSingle">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-right" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipImageBackwardsSingle" mnemonicParsing="false" onAction="#onSkipImageBackwardsSingle"
+              onMenuValidation="#onSkipImageBackwardsSingleMenuValidation" text="%vr.menu.skipImageBackwardsSingle">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-left" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipImageForwardDouble" mnemonicParsing="false" onAction="#onSkipImageForwardDouble"
+              text="%vr.menu.skipImageForwardDouble">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-double-right" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipImageBackwardsDouble" mnemonicParsing="false" onAction="#onSkipImageBackwardsDouble"
+              text="%vr.menu.skipImageBackwardsDouble">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-double-left" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipImageForwardTriple" mnemonicParsing="false" onAction="#onSkipImageForwardTriple"
+              text="%vr.menu.skipImageForwardTriple">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-triple-right" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipImageBackwardsTriple" mnemonicParsing="false" onAction="#onSkipImageBackwardsTriple"
+              text="%vr.menu.skipImageBackwardsTriple">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-chevron-triple-left" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem fx:id="menuItemSkipSuperframeOneForward" mnemonicParsing="false" onAction="#onSkipSuperframeOneForward"
+              text="%vr.menu.skipSuperframeOneForward">
+      <graphic>
+        <FontIcon iconLiteral="mdi2s-step-forward" iconColor="#546e7a" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSkipSuperframeOneBackwards" mnemonicParsing="false"
+              onAction="#onSkipSuperframeOneBackwards" text="%vr.menu.skipSuperframeOneBackwards">
+      <graphic>
+        <FontIcon iconLiteral="mdi2s-step-backward" iconColor="#546e7a" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%vr.menu.help">
+    <MenuItem mnemonicParsing="false" onAction="#openLogFolder" text="%vr.menu.showLogInExplorer"/>
+    <MenuItem mnemonicParsing="false" onAction="#openAbout" text="%vr.menu.about">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2i-information-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+</MenuBar>

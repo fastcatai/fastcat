@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import ui.IconRadioButton?>
+<?import java.lang.String?>
+<Scene stylesheets="@/css/VideoReview.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="controller.VideoReviewController">
+  <VBox prefHeight="700.0" prefWidth="1100.0">
+    <fx:include fx:id="menuBar" source="VRMenuBar.fxml"/>
+    <HBox>
+      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0">
+        <HBox.margin>
+          <Insets bottom="5.0"/>
+        </HBox.margin>
+        <StackPane>
+          <padding>
+            <Insets left="5.0" right="5.0"/>
+          </padding>
+          <VBox spacing="5.0">
+            <padding>
+              <Insets top="5.0"/>
+            </padding>
+            <StackPane>
+              <VBox>
+                <StackPane>
+                  <VBox fx:id="vBoxClasses" style="-fx-background-color: -fx-background;">
+                    <Label text="Classes">
+                      <font>
+                        <Font name="System Bold" size="12.0"/>
+                      </font>
+                    </Label>
+                    <fx:include fx:id="listClasses" source="ListViewClasses.fxml" VBox.vgrow="ALWAYS"/>
+                  </VBox>
+                  <VBox fx:id="vBoxAnnotatedImages" style="-fx-background-color: -fx-background;">
+                    <Label text="Images with Annotations">
+                      <font>
+                        <Font name="System Bold" size="12.0"/>
+                      </font>
+                    </Label>
+                    <fx:include fx:id="listViewAnnotatedImages" source="ListViewAnnotatedImages.fxml"
+                                VBox.vgrow="ALWAYS"/>
+                  </VBox>
+                  <VBox fx:id="vBoxSuperframes" style="-fx-background-color: -fx-background;">
+                    <HBox spacing="5.0">
+                      <Label text="Video:">
+                        <font>
+                          <Font name="System Bold" size="13.0"/>
+                        </font>
+                      </Label>
+                      <Label fx:id="labelLoadedVideo" prefWidth="206.0" text="No video loaded"/>
+                    </HBox>
+                    <SplitPane fx:id="splitPaneLists" dividerPositions="0.3" minHeight="300.0" orientation="VERTICAL">
+                      <AnchorPane>
+                        <ListView fx:id="listViewSuperframes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                      </AnchorPane>
+                      <AnchorPane>
+                        <fx:include fx:id="listViewFrameData" source="ListViewFrameData.fxml"
+                                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                      </AnchorPane>
+                    </SplitPane>
+                  </VBox>
+                </StackPane>
+                <VBox spacing="5.0">
+                  <VBox.margin>
+                    <Insets bottom="3.0" top="3.0"/>
+                  </VBox.margin>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <Label text="Annotation">
+                      <font>
+                        <Font name="System Bold" size="13.0"/>
+                      </font>
+                    </Label>
+                    <ChoiceBox fx:id="choiceBoxAnnotations" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS"/>
+                    <IconRadioButton fx:id="buttonSuperframesList">
+                      <tooltip>
+                        <Tooltip text="Show Superframes"/>
+                      </tooltip>
+                      <graphic>
+                        <FontIcon/>
+                      </graphic>
+                      <toggleGroup>
+                        <ToggleGroup fx:id="listButtonsGroup"/>
+                      </toggleGroup>
+                      <styleClass>
+                        <String fx:value="list-button"/>
+                        <String fx:value="superframes-list-button"/>
+                      </styleClass>
+                    </IconRadioButton>
+                    <IconRadioButton fx:id="buttonAnnotatedImagesList">
+                      <tooltip>
+                        <Tooltip text="Show Annotated Images"/>
+                      </tooltip>
+                      <graphic>
+                        <FontIcon/>
+                      </graphic>
+                      <toggleGroup>
+                        <fx:reference source="listButtonsGroup"/>
+                      </toggleGroup>
+                      <styleClass>
+                        <String fx:value="list-button"/>
+                        <String fx:value="annotated-images-button"/>
+                      </styleClass>
+                    </IconRadioButton>
+                    <IconRadioButton fx:id="buttonClassesList">
+                      <tooltip>
+                        <Tooltip text="Show Classes"/>
+                      </tooltip>
+                      <graphic>
+                        <FontIcon/>
+                      </graphic>
+                      <toggleGroup>
+                        <fx:reference source="listButtonsGroup"/>
+                      </toggleGroup>
+                      <styleClass>
+                        <String fx:value="list-button"/>
+                        <String fx:value="classes-list-button"/>
+                      </styleClass>
+                    </IconRadioButton>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <Label text="Default Label">
+                      <font>
+                        <Font name="System Bold" size="13.0"/>
+                      </font>
+                    </Label>
+                    <TextField fx:id="textFieldAnnotationLabel" promptText="e.g. polyp" HBox.hgrow="ALWAYS"/>
+                  </HBox>
+                </VBox>
+                <fx:include fx:id="listViewAnnotations" maxHeight="600.0" minHeight="150.0"
+                            source="ListViewAnnotations.fxml"/>
+              </VBox>
+              <HBox fx:id="hBoxLandingView" alignment="CENTER" style="-fx-background-color: -fx-background;"
+                    visible="false">
+                <StackPane.margin>
+                  <Insets left="-5.0" right="-5.0"/>
+                </StackPane.margin>
+                <Label text="(1) Click on 'Load'&#10;(2) Select JSON or folder&#10;(3) Start reviewing" textFill="GREY">
+                  <font>
+                    <Font size="18.0"/>
+                  </font>
+                  <padding>
+                    <Insets left="10.0"/>
+                  </padding>
+                </Label>
+              </HBox>
+            </StackPane>
+          </VBox>
+        </StackPane>
+      </VBox>
+      <StackPane fx:id="stackPaneModeView" HBox.hgrow="ALWAYS">
+        <fx:include fx:id="frameMode" source="ModeFrameViewer.fxml"/>
+        <fx:include fx:id="videoMode" source="ModeVideoPlayer.fxml"/>
+      </StackPane>
+    </HBox>
+  </VBox>
+</Scene>

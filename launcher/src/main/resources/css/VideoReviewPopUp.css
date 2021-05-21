@@ -1,0 +1,7 @@
+.superframe-popup {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 4;
+    -fx-border-color: gray;
+    -fx-border-radius: 4;
+    -fx-padding: 3;
+}

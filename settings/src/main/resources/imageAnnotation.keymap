@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "shortcuts": {
+    "OpenLoadFolderWindow": ["Ctrl+O"],
+    "SaveAnnotationsDialog": ["Ctrl+S"],
+    "NextImage": ["D"],
+    "PreviousImage": ["A"],
+    "JumpToNextVerifiedAnnotation": ["Ctrl+Q"],
+    "DeleteAnnotation": ["Delete"],
+    "CopySelectedAnnotation": ["Ctrl+D"],
+    "AddDefaultImageLabel": ["Ctrl+I"],
+    "TriggerSingleDetection": ["Ctrl+Space"]
+  }
+}

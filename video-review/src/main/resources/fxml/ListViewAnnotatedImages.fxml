@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<ListView xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:id="listViewAnnotatedImages" fx:controller="ui.ListAnnotatedImages"
+          items="${controller.imageDataList}"
+          cellFactory="${controller}"
+          onMouseClicked="#onAnnotatedImageMouseClicked"
+          onKeyPressed="#onAnnotatedImageKeyPressed">
+</ListView>

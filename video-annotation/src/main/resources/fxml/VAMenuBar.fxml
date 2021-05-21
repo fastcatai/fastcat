@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<MenuBar xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+         fx:controller="controller.VAMenuBarController">
+  <Menu mnemonicParsing="false" text="File">
+    <MenuItem fx:id="menuItemLoadVideo" mnemonicParsing="false" text="Load Video" onAction="#loadVideo">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2f-file-video-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menItemSave" mnemonicParsing="false" text="Save" onAction="#save">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-content-save-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" text="Settings" onAction="#openSettings">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2t-tune" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" text="Back to Menu" onAction="#backToMenu"/>
+    <MenuItem mnemonicParsing="false" text="Exit" onAction="#exitProgram"/>
+  </Menu>
+  <Menu mnemonicParsing="false" text="Edit">
+    <MenuItem mnemonicParsing="false" text="Delete Annotation">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2d-delete-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="Navigation">
+    <MenuItem mnemonicParsing="false" text="Next Frame">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2s-step-forward" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem mnemonicParsing="false" text="Previous Frame">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2s-step-backward" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" text="Jump +10 sec">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2f-fast-forward-10" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem mnemonicParsing="false" text="Jump -10 sec">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2r-rewind-10" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="Help">
+    <MenuItem mnemonicParsing="false" text="Show Log in Explorer"/>
+    <MenuItem mnemonicParsing="false" text="About" onAction="#openAbout">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2i-information-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+</MenuBar>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<VBox fx:id="root" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: -fx-background;" stylesheets="@/css/VideoReview.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameModeController">
+  <StackPane fx:id="stackPaneViewer" style="-fx-background-color: #e0e0e0;" VBox.vgrow="ALWAYS" />
+  <StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0">
+    <VBox fx:id="imageViewerFramePlayerMode" alignment="CENTER" style="-fx-background-color: -fx-background;">
+      <Label fx:id="labelFramePlayerFrameNumber" text="###">
+        <font>
+          <Font name="System Bold" size="24.0" />
+        </font>
+      </Label>
+    </VBox>
+    <VBox fx:id="imageViewerControls" spacing="5.0" style="-fx-background-color: -fx-background;">
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+        </rowConstraints>
+        <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1">
+          <Label fx:id="labelTripleSkipBackwards" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-triple-left" iconSize="30" />
+            </graphic>
+          </Label>
+          <Label fx:id="labelDoubleSkipBackwards" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-double-left" iconSize="30" />
+            </graphic>
+          </Label>
+          <Label fx:id="labelPreviousImage" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-left" iconSize="30" />
+            </graphic>
+          </Label>
+          <Label fx:id="labelNextImage" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-right" iconSize="30" />
+            </graphic>
+          </Label>
+          <Label fx:id="labelDoubleSkipForwards" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-double-right" iconSize="30" />
+            </graphic>
+          </Label>
+          <Label fx:id="labelTripleSkipForwards" styleClass="image-viewer-button">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-chevron-triple-right" iconSize="30" />
+            </graphic>
+          </Label>
+        </HBox>
+        <HBox>
+          <Label fx:id="labelButtonSwitchToVideoMode" styleClass="video-mode-button">
+            <graphic>
+              <FontIcon />
+            </graphic>
+            <tooltip>
+              <Tooltip prefWidth="110.0" text="Return to video and start approximately at current frame" wrapText="true" />
+            </tooltip>
+          </Label>
+        </HBox>
+      </GridPane>
+      <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+        <AnchorPane HBox.hgrow="ALWAYS">
+          <StackPane minWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <fx:include source="FlowFrameClasses.fxml" />
+            <fx:include source="FlowAnnotationClasses.fxml" visible="false" />
+          </StackPane>
+        </AnchorPane>
+        <AnchorPane maxWidth="175.0" minWidth="100.0" HBox.hgrow="ALWAYS">
+          <ScrollPane fitToWidth="true" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridPaneClassCounts" hgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints halignment="CENTER" minWidth="-Infinity" />
+              </columnConstraints>
+              <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+              </padding>
+            </GridPane>
+          </ScrollPane>
+        </AnchorPane>
+        <VBox maxWidth="250.0" minWidth="200.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0">
+            <Label minWidth="70.0" prefWidth="70.0" text="Superframe:" />
+            <Label fx:id="labelCurrentSuperframe" text="###" />
+          </HBox>
+          <HBox>
+            <Label minWidth="70.0" prefWidth="70.0" text="Frame:">
+              <font>
+                <Font name="System Bold" size="16.0" />
+              </font>
+            </Label>
+            <Label fx:id="labelCurrentFrameNumber" text="###">
+              <font>
+                <Font name="System Bold" size="16.0" />
+              </font>
+            </Label>
+          </HBox>
+          <HBox>
+            <Label minWidth="70.0" prefWidth="70.0" text="Jump to">
+              <font>
+                <Font name="System Bold" size="16.0" />
+              </font>
+            </Label>
+            <TextField fx:id="textFieldJumpToFrameNumber" promptText="Enter number" HBox.hgrow="ALWAYS" />
+          </HBox>
+          <HBox alignment="CENTER" spacing="20.0">
+            <VBox.margin>
+              <Insets top="5.0" />
+            </VBox.margin>
+            <CheckBox fx:id="checkBoxJumpSuperframes" mnemonicParsing="false" text="jump freeze" />
+            <CheckBox fx:id="checkBoxAutoNext" mnemonicParsing="false" text="auto next" />
+          </HBox>
+        </VBox>
+        <TextArea fx:id="textAreaComment" minWidth="-Infinity" prefWidth="100.0" promptText="Comment section" HBox.hgrow="ALWAYS" />
+        <VBox alignment="CENTER" spacing="5.0" HBox.hgrow="NEVER">
+          <HBox.margin>
+            <Insets left="5.0" />
+          </HBox.margin>
+          <Button fx:id="buttonReport" mnemonicParsing="false">
+            <graphic>
+              <FontIcon iconLiteral="mdi2c-clipboard-text-search-outline" iconSize="40" />
+            </graphic>
+            <tooltip>
+              <Tooltip text="Report" />
+            </tooltip>
+          </Button>
+          <Button fx:id="buttonPathologyReport" mnemonicParsing="false">
+            <tooltip>
+              <Tooltip text="Pathology Report" />
+            </tooltip>
+            <graphic>
+              <FontIcon iconLiteral="medicon-pathology" iconSize="40" />
+            </graphic>
+          </Button>
+        </VBox>
+      </HBox>
+      <StackPane.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" />
+      </StackPane.margin>
+    </VBox>
+  </StackPane>
+</VBox>

@@ -1,0 +1,81 @@
+/***************************************************
+* Shortcut label in list view
+***************************************************/
+
+.shortcut-label {
+    -fx-border-color: #cec978;
+    -fx-border-radius: 5;
+    -fx-background-color: #ded97b;
+    -fx-background-radius: 5;
+    -fx-padding: 1 1 1 1;
+}
+
+/***************************************************
+* Video Review: Create new class button
+***************************************************/
+
+.create-class-button {
+    -fx-cursor: hand;
+}
+
+.create-class-button > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-plus-box-outline";
+    -fx-icon-size: 18;
+}
+
+.create-class-button:hover > .ikonli-font-icon {
+    -fx-icon-code: "mdi2p-plus-box";
+}
+
+.create-class-button:pressed > .ikonli-font-icon {
+    -fx-icon-color: #37474F;
+}
+
+/***************************************************
+* Shortcut error message
+***************************************************/
+
+.shortcut-error-box {
+    -fx-border-color: #ff0000B3;
+    -fx-border-radius: 5;
+    -fx-background-color: #ff000010;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.shortcut-error-box > .label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.shortcut-error-box > .ikonli-font-icon {
+    -fx-icon-code: "mdi2e-exclamation-thick";
+    -fx-icon-size: 22;
+    -fx-icon-color: red;
+}
+
+/***************************************************
+* Class Creator info message
+***************************************************/
+
+.class-creator-info {
+    -fx-border-color: #1E88E5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: #1E88E510;
+    -fx-label-padding: 5;
+    -fx-text-fill: #7c7c7c;
+    -fx-text-alignment: justify;
+    -fx-wrap-text: true;
+}
+
+
+
+.scope-label {
+    -fx-font-weight: bold;
+}
+
+
+.add-class-button {
+    -fx-padding: 1 2 1 2;
+}

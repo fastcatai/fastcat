@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<MenuBar xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1"
+         fx:controller="controller.IAMenuBarController">
+  <Menu mnemonicParsing="false" text="%ia.menu.file">
+    <MenuItem fx:id="menuItemLoad" mnemonicParsing="false" onAction="#loadFolder" text="%ia.menu.loadFolder">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2f-folder-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemSave" mnemonicParsing="false" onAction="#saveAnnotations" text="%ia.menu.save">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-content-save-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" onAction="#openSettings" text="%ia.menu.settings">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2t-tune" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem mnemonicParsing="false" onAction="#backToMenu" text="%ia.menu.backToMenu"/>
+    <MenuItem mnemonicParsing="false" onAction="#exitProgram" text="%ia.menu.exit"/>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%ia.menu.edit">
+    <MenuItem fx:id="menuItemCopyAnnotation" mnemonicParsing="false" onAction="#copySelectedAnnotation"
+              text="%ia.menu.copyAnnotation">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2c-content-copy" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemDeleteAnnotation" mnemonicParsing="false" onAction="#deleteAnnotation"
+              text="%ia.menu.deleteAnnotation">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2d-delete-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <MenuItem fx:id="menuItemAddUserLabelToImage" mnemonicParsing="false" onAction="#addUserLabelToImage"
+              text="%ia.menu.addLabelToImage">
+      <graphic>
+        <FontIcon iconLiteral="mdi2l-label-outline" iconSize="18" iconColor="#546e7a"/>
+      </graphic>
+    </MenuItem>
+    <SeparatorMenuItem mnemonicParsing="false"/>
+    <CheckMenuItem fx:id="menuItemEditOnSelect" mnemonicParsing="false" text="%ia.menu.editOnSelect">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2v-vector-polyline-edit" iconSize="18"/>
+      </graphic>
+    </CheckMenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%ia.menu.navigation">
+    <MenuItem fx:id="menuItemNextImage" mnemonicParsing="false" onAction="#selectNextImage" text="%ia.menu.nextImage">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2p-page-next-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemPreviousImage" mnemonicParsing="false" onAction="#selectPreviousImage"
+              text="%ia.menu.previousImage">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2p-page-previous-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+    <MenuItem fx:id="menuItemNextVerifiedAnnotation" mnemonicParsing="false" onAction="#jumpToNextVerifiedBox"
+              text="%ia.menu.nextVerifiedAnnotation"/>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%ia.menu.automation">
+    <MenuItem fx:id="menuItemTriggerSingleDetection" onAction="#singleDetection" mnemonicParsing="false"
+              text="%ia.menu.triggerSingleDetection">
+      <graphic>
+        <FontIcon iconLiteral="mdi2d-docker" iconSize="18" iconColor="#546e7a"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+  <Menu mnemonicParsing="false" text="%ia.menu.help">
+    <MenuItem mnemonicParsing="false" onAction="#openLogFolder" text="%ia.menu.showLogInExplorer"/>
+    <MenuItem mnemonicParsing="false" onAction="#openAbout" text="%ia.menu.about">
+      <graphic>
+        <FontIcon iconColor="#546e7a" iconLiteral="mdi2i-information-outline" iconSize="18"/>
+      </graphic>
+    </MenuItem>
+  </Menu>
+</MenuBar>

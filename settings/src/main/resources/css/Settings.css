@@ -1,0 +1,45 @@
+.bordered-titled-title {
+    -fx-background-color: -fx-background;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.bordered-titled-pane {
+    -fx-border-color: gray;
+    -fx-padding: 20 100 20 20; /* top, right, bottom, left */
+}
+
+/*
+    Color Picker Style
+*/
+
+.color-picker {
+    -fx-pref-width: 100;
+    -fx-pref-height: 25;
+    -fx-padding: 0 0 0 0;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: black;
+    -fx-background-color: null;
+    -fx-cursor: hand;
+    -fx-text-fill: red;
+}
+
+.color-picker > .color-picker-label {
+    -fx-padding: 0 0 0 0;
+    -fx-graphic: null;
+}
+
+.color-picker > .color-picker-label > .text {
+    -fx-fill: black;
+}
+
+.color-picker > .color-picker-label > .picker-color {
+    visibility: false;
+}
+
+.color-picker > .color-picker-label > .picker-color > .picker-color-rect {
+    -fx-stroke: null;
+    -fx-fill: null;
+    visibility: false;
+}
